@@ -1,8 +1,3 @@
----
-title: HACK THE BOX MODULE - API ATTACKS
-
----
-
 # HACK THE BOX MODULE - API ATTACKS 
 >(for HTB CWES preperation)
 
