@@ -70,7 +70,7 @@ Suppliers' field of infomation:
     ...
   ]
 ```
-=> Confirmed **Broken Object Property Level Authorization (BOPLA)** vulnerability leading to **[Excessive Data Exposure](https://cwe.mitre.org/data/definitions/200.html)**. In this case, not only has the vulnerable endpoint leaked the supplier's name and email but also more sensitive infomation like security question and their CV file URI.
+=> Confirmed **Broken Object Property Level Authorization (BOPLA)** vulnerability leading to **[Excessive Data Exposure](https://cwe.mitre.org/data/definitions/200.html)**. In this case, not only has the vulnerability leaked the supplier's name and email but also more sensitive infomation like security question and their CV file URI.
 
 #### Exploring new API endpoints
 ##### 1. `POST /api/v2/authentication/suppliers/passwords/resets/security-question-answers`
@@ -155,15 +155,17 @@ Response:
 
 
 ##### 2 `/api/v2/suppliers/current-user/cv`
-Using the account I got from the previous step, I can now start testing the new supplier's APIs.
+- Using the account I got from the previous step, I can now start testing the new supplier's APIs.
 
-Similarly, I tried to get this user's roles with `GET /a/pi/v2/roles/current-user` but this account seems to have no roles assign to it.
+- Similarly, I tried to get this user's roles with `GET /api/v2/roles/current-user` but this account seems to have no roles assign to it.
 
-```
-{
-  "errorMessage": "User does not have any roles assigned"
-}
-```
+   ```
+  {
+    "errorMessage": "User does not have any roles assigned"
+  }
+  ```
+
+Back to the API endpoint:
 
 ![](photos/Skills_Assessment_Image_post_cv.png)
 Despite the claim, "*File upload attacks have been prevented*", this could still be an oversight from the developer's perspective.
@@ -239,6 +241,7 @@ Response:
 ```
 
 Decode that base 64 data I got the flag: `HTB{flag}`.
+
 ![](photos/Skills_Assessment_Image_flag.png)
 
 => Confirmed developer's oversight at a "SSRF to LFI" but at `/api/v2/suppliers/current-user/cv`. 
