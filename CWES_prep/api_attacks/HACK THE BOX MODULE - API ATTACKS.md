@@ -4,7 +4,7 @@
 ## Broken Object Property Level Authorization - API Attacks
 
 ### Target: 
-- **Inlanefreight E-Commerce Marketplace's API endpoints**: *94.237.52.208:45531* 
+- **Inlanefreight E-Commerce Marketplace's APIs**: 94.237.52.208:45531
 ### - Challenge 1 
 |Authenticate to 94.237.120.233:30255 with user "htbpentester5@hackthebox.com" and password "HTBPentester5"
 
@@ -169,7 +169,7 @@ curl -X 'POST' \
 ---
 ## Unrestricted Resource Consumption
 ### Target: 
-- **Inlanefreight E-Commerce Marketplace's API endpoints**: *94.237.52.208:45531* 
+- **Inlanefreight E-Commerce Marketplace's APIs**: 94.237.52.208:45531
 
 Exploit another Unrestricted Resource Consumption vulnerability and submit the flag.
 
@@ -229,7 +229,7 @@ After an amount of repetition, it finally response with the flag.
 it/they were supposed to have.
 
 ### Target:
-- **Inlanefreight E-Commerce Marketplace's APIs**:*94.237.50.128:33339* 
+- **Inlanefreight E-Commerce Marketplace's APIs**:94.237.50.128:33339
 
 
     Authenticate to with user         "htbpentester9@hackthebox.com" and password "HTBPentester9"
@@ -294,7 +294,7 @@ Response body:
 
 
 ### Target:
-- **Inlanefreight E-Commerce Marketplace's APIs**:*94.237.50.128:33339* 
+- **Inlanefreight E-Commerce Marketplace's APIs**:94.237.50.128:33339
 -  Authenticate to 94.237.50.128:33339 with user "htbpentester9@hackthebox.com" and password "HTBPentester9"
 
     Based on the previous vulnerability, exploit the Unrestricted Access to Sensitive Business Flow vulnerability and submit the street address where the user with the ID 'daa8c984-ba84-4265-8d88-12d6607e511c' lives.
@@ -355,7 +355,7 @@ The roles give us access to (in this particular order):
 
 We can see that there are 2 possible ways to perform a SSRF to LFI attack:
 
-1. Products 
+1. **Products** 
 - Create a new product via `POST /api/v1/products/current-user`.
     - Request body:
     ```
@@ -406,7 +406,7 @@ We can see that there are 2 possible ways to perform a SSRF to LFI attack:
     ```
 - Decode the base64Data field and we'll get our flag: `HTB{flag}`.
 
-2. Supplier companies
+2. **Supplier companies**
 - *Similar to the module example.*
 
 ---
@@ -508,7 +508,7 @@ We got their email as our flag.
 - [CWE-1357](https://cwe.mitre.org/data/definitions/1357.html): Reliance on Insufficiently Trustworthy Component
 
 ### Target 
-- Inlanefreight E-Commerce Marketplace API endpoints : *83.136.249.164:41411*
+- Inlanefreight E-Commerce Marketplace API endpoints : 83.136.249.164:41411
 
 ### Challenge
 - If v1 of Inlanefreight's E-Commerce Marketplace accepted data from the '/api/v0/suppliers/deleted' endpoint unsafely, what would the password hash of 'Yara MacDonald' be in v1?
@@ -523,7 +523,9 @@ All I did was taking the password hash from `GET /api/v0/suppliers/deleted` and 
 #### That's the end of OWASP API Security Top 10.
 ---
 
-#### Epilogue: 
+#### Post-script: 
 I've started this CWES journey for almost 6 months now but only now, when I almost finish every modules, starting this sloppy work of a write-up. Before this, I've only written everything down into my notebook. I intend to continue writing more write-ups for future CTFs, HTB rooms,... 
 
-I hope that this write-up can help you, whoever is reading this (as if there are anyone), in this CWES journey (or maybe CPTS for you). Thank you for wasting your time with this. 
+I hope that this write-up can help you, whoever is reading this (as if there is anyone), in this CWES journey (or whatever for yours). Thank you for wasting your time with this. 
+
+pp/s: The explanation here is clumsy and needs heavy improvement, I'll try better.
